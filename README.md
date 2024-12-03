@@ -18,10 +18,15 @@ Funcionalidades del Sistema
 
 Requisitos Técnicos​
 • Arquitectura Distribuida: Implementar nodos independientes (almacenes) en una arquitectura Cliente-Servidor o Peer-to-Peer.​
+
 • Modelos de Comunicación: Uso de paso de mensajes y objetos distribuidos para la comunicación entre nodos.​
+
 • Middleware: Utilizar un middleware de mensajes o publicación-suscripción (como RabbitMQ o gRPC).​
+
 • Persistencia de Datos: Base de datos distribuida o almacenamiento compartido.​
+
 • Sincronización de Inventarios: Algoritmos de exclusión mutua, snapshots y sincronización de relojes.​
+
 
 
 Algoritmos Distribuidos (Teoría Breve)​
