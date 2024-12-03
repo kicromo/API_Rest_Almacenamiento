@@ -1,6 +1,7 @@
 # API_Rest_Almacenamiento
 
 Introducción a la Práctica​:
+
 • Contexto: La gestión de inventario en tiempo real es fundamental para empresas con múltiples almacenes.​
 • Desafío Real: Garantizar consistencia y sincronización en la información de inventario entre diferentes ubicaciones.​
 • Objetivo del Proyecto: Implementar un sistema que permita consultar, actualizar y sincronizar el inventario en diferentes nodos en tiempo real.​
