@@ -3,16 +3,18 @@
 Introducción a la Práctica​:
 
 • Contexto: La gestión de inventario en tiempo real es fundamental para empresas con múltiples almacenes.​
+
 • Desafío Real: Garantizar consistencia y sincronización en la información de inventario entre diferentes ubicaciones.​
+
 • Objetivo del Proyecto: Implementar un sistema que permita consultar, actualizar y sincronizar el inventario en diferentes nodos en tiempo real.​
 
 Funcionalidades del Sistema
 
 1. Gestión de Stock: Permitir la actualización y consulta de inventarios en tiempo real.​
-3. Sincronización entre Almacenes: Cualquier cambio se refleja en todos los nodos.​
-5. Consulta Global: Posibilidad de ver inventarios de otros almacenes.​
-7. Alertas de Reposición: Notificación automática al alcanzar un nivel de stock mínimo.​
-9. Historial de Movimientos: Registro de entradas, salidas y transferencias de cada almacén.​
+2. Sincronización entre Almacenes: Cualquier cambio se refleja en todos los nodos.​
+3. Consulta Global: Posibilidad de ver inventarios de otros almacenes.​
+4. Alertas de Reposición: Notificación automática al alcanzar un nivel de stock mínimo.​
+5. Historial de Movimientos: Registro de entradas, salidas y transferencias de cada almacén.​
 
 Requisitos Técnicos​
 • Arquitectura Distribuida: Implementar nodos independientes (almacenes) en una arquitectura Cliente-Servidor o Peer-to-Peer.​
