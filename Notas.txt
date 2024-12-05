@@ -1,0 +1,14 @@
+- Para ver el funcionamiento debereis hacer lo siguiente:
+
+- instalarse MySQL
+	- crear una base de datos
+	- podeis crear un nuevo usuario que no sea root (para probar)
+
+- De momento no hay una UI para el cliente, hay un app que se puede descargar desde el centro de aplicaciones, se llama "Postman"
+
+
+- Debereis detener instalado maven
+
+- Cuando ejecutéis el codigo (servidor), podemos usar Postman (Cliente) para probar metodos 
+
+- cuando inserteis ejemplos con Post, podeis ver los resultados en tiempo real desde la base de datos de los datos insertados.
