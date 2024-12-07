@@ -12,3 +12,8 @@
 - Cuando ejecutéis el codigo (servidor), podemos usar Postman (Cliente) para probar metodos 
 
 - cuando inserteis ejemplos con Post, podeis ver los resultados en tiempo real desde la base de datos de los datos insertados.
+
+
+******************************************************************************************
+store -> Nodo cliente
+store_centra -> Nodo servidor ("central")
