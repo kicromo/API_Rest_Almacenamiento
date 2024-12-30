@@ -1,0 +1,121 @@
+Documentacion
+Para ejecutar:
+	- crear base de datos
+	- darle privilegios a los usuarios (clientes)
+	- crear usuarios en Rabbit (abajo del todo)
+
+Extra:
+/***************************************************************************************************//
+Hay que instalar Rabbit:
+
+Para habilitar el panel de administración (opcional):
+Activa el plugin de administración:
+- sudo rabbitmq-plugins enable rabbitmq_management
+- Accede al panel desde: http://localhost:15672.
+
+
+
+Cómo Funciona RabbitMQ
+Exchanges
+El publicador envía mensajes al exchange. Este es un intermediario que distribuye los mensajes a las colas según ciertas reglas (routing keys o patrones).
+Queues
+Las colas almacenan mensajes hasta que son consumidos por un suscriptor.
+Binding
+Es la asociación entre un exchange y una cola mediante una clave de enrutamiento.
+
+*********************************************************************************
+***************************** SQL ***********************************************
+*********************************************************************************
+SHOW COLUMNS FROM `/products`;
+
+CREATE DATABASE store_zhong;
+
+CREATE USER 'user_client_zhong'@'localhost' IDENTIFIED BY 'vc0910$$';
+GRANT ALL PRIVILEGES ON store_zhong.* TO 'user_client_zhong'@'localhost';
+FLUSH PRIVILEGES;
+
+
+
+CREATE DATABASE store_paco;
+
+CREATE USER 'user_client_paco'@'localhost' IDENTIFIED BY 'vc0910$$';
+GRANT ALL PRIVILEGES ON store_paco.* TO 'user_client_paco'@'localhost';
+FLUSH PRIVILEGES;
+
+
+CREATE USER 'store_user'@'%' IDENTIFIED BY 'vc0910$$';
+GRANT ALL PRIVILEGES ON store.* TO 'store_user'@'%';
+FLUSH PRIVILEGES;
+
+
+Cambiar privilegios con GRANT: (SHOW GRANTS FOR 'username'@'host';)
+
+GRANT SELECT, INSERT, UPDATE ON database_name.* TO 'username'@'host';
+GRANT ALL PRIVILEGES ON database_name.* TO 'username'@'host';
+FLUSH PRIVILEGES;
+
+por si se falla;
+REVOKE SELECT, INSERT, UPDATE ON database_name.* FROM 'username'@'host';
+REVOKE ALL PRIVILEGES ON database_name.* FROM 'username'@'host';
+
+
+-- > Configuracion de Ips
+spring.datasource.url=jdbc:mysql://192.168.1.41:3306/store
+
+editamos el archivo de configuración de MySQL (/etc/mysql/my.cnf o /etc/mysql/mysql.conf.d/mysqld.cnf):
+
+bind-address = 127.0.0.1 ---------> bind-address = 0.0.0.0
+reiniciamos MySQL:
+
+sudo systemctl restart mysql
+
+
+---- mirar privilegios de un usuario en concreto 
+SHOW DATABASES;
+SHOW GRANTS FOR 'user_client_minerva'@'localhost';
+
+
+----
+Para reiniciar los identificadores auto-generados después de eliminar los datos:
+
+ALTER TABLE '/products' AUTO_INCREMENT = 1;
+
+*****
+
+
+/--------------------------------------------Configuracion Rabbit ----------------------------------------------/
+
+para ambia el localhost en spring.rabbitmq.host por tu ip:
+
+spring.rabbitmq.host=192.168.1.41
+
+Abre el archivo de configuración (/etc/rabbitmq/rabbitmq.conf o /etc/rabbitmq/advanced.config) 
+y verifica que no hay restricciones en la dirección de enlace (bind address).
+
+sudo ufw allow 5672/tcp
+
+sudo systemctl restart rabbitmq-server
+
+spring.rabbitmq.host=192.168.1.41
+spring.datasource.url=jdbc:mysql://192.168.1.41:3306/store
+
+mvn wrapper:wrapper
+mvn spring-boot:run
+
+
+//--------------------- Añadir usuario RabbitMQ --------------------------//
+sudo rabbitmqctl add_user myuser mypassword
+sudo rabbitmqctl set_permissions -p / myuser ".*" ".*" ".*"
+
+sudo rabbitmqctl add_user zhong zhongpass
+sudo rabbitmqctl set_permissions -p / zhong ".*" ".*" ".*"
+
+sudo rabbitmqctl add_user diego diegopass
+sudo rabbitmqctl set_permissions -p / diego ".*" ".*" ".*"
+
+sudo rabbitmqctl add_user minerva minervapass
+sudo rabbitmqctl set_permissions -p / minerva ".*" ".*" ".*"
+
+sudo rabbitmqctl add_user paco pacopass
+sudo rabbitmqctl set_permissions -p / paco ".*" ".*" ".*"
+
