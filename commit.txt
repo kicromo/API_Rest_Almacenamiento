@@ -1,0 +1,9 @@
+{
+  "nombreProducto": "Nevera",
+  "id": 968,
+  "cantidadStock": 30,
+  "precioUnitario": 1200,
+  "categoria": 1,
+  "fechaultimaActualizacion": "2024-12-09",
+  "historialMovimientos": "Añadido al inventario inicial"
+}
